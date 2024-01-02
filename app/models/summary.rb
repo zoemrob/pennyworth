@@ -1,7 +1,7 @@
 class Summary < ApplicationRecord
   has_one :news
 
-  def generate_template
-
+  def self.generate
+    create(template: Template.new.build)
   end
 end

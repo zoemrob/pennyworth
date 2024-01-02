@@ -1,4 +1,6 @@
-<h2>Here's the report you requested.</h2>
-<p><%= @summary %></p>
-<p>As always, a pleasure to serve you.</p>
-<small>Pennyworth</small>
+<div class="container">
+  <h2>Hello Sir, here's the summary you requested</h2>
+  <%= @summary.html_safe %>
+  <hr>
+  <em>As always, a pleasure to serve you, Pennyworth.</em>
+</div>

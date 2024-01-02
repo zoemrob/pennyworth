@@ -16,6 +16,17 @@ class OpenAiClient
       temperature: 0.7
     })
 
-    response.dig('choices', 0, 'message', 'content')
+    clean_content response.dig('choices', 0, 'message', 'content')
+  end
+
+  def clean_content(content)
+    if content.include? '```HTML'
+      content.slice!('```HTML')
+    end
+    if content.include? '```'
+      content.slice!('```')
+    end
+
+    content
   end
 end

@@ -5,7 +5,16 @@ class News < ApplicationRecord
   include OpenAiGeneratable
 
   def mail
-    update_column(:body, generate_content) unless body.present?
     DailyMailer.with(user: user, summary: body).daily
   end
+
+  after_create :generate_todays_news, if: :body_blank?
+
+  def generate_todays_news
+    update_column(:body, generate_content)
+
+    self
+  end
+
+  def body_blank? = body.blank?
 end

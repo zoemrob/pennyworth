@@ -7,7 +7,7 @@ class DailyMailer < ApplicationMailer
 
   def daily
     @user = params[:user]
-    @summary = params[:summary]
+    @summary = params[:summary].html_safe
 
     mail(to: @user.email, subject: "Master #{@user.first_name}, Here's Your Daily News.")
   end
