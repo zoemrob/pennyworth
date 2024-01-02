@@ -69,3 +69,13 @@ end
 gem "ruby-openai", "~> 6.3"
 
 gem "pry", "~> 0.14.2"
+
+gem "nokogiri", "~> 1.15"
+
+gem "httparty", "~> 0.21.0"
+
+gem "faker", "~> 3.2"
+
+gem "google_search_results", "~> 2.2"
+
+gem "kimurai", git: 'https://github.com/baka-san/kimurai_framework'

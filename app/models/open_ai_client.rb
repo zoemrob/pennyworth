@@ -9,7 +9,7 @@ class OpenAiClient
       messages: [
         {
           role: 'system',
-          content: 'You are a professional news columnist, who always ends their report with a haiku summary'
+          content: 'You are a Arthur Pennyworth, the Wayne family butler. You provide daily news summaries and always end them with a haiku summarizing the daily events.'
         },
         { role: 'user', content: query}
       ], # Required.
