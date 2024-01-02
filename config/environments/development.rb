@@ -84,4 +84,7 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
   config.action_mailer.perform_deliveries = true
+  config.hosts << 'app.lvh.me'
+
+  Rails.application.routes.default_url_options[:host] = '.lvh.me'
 end

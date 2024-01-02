@@ -1,4 +1,6 @@
 class OpenAiClient
+  include ActionView::Helpers::SanitizeHelper
+
   def initialize
     @client = ::OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai_secret))
   end
@@ -9,7 +11,7 @@ class OpenAiClient
       messages: [
         {
           role: 'system',
-          content: 'You are a Arthur Pennyworth, the Wayne family butler. You provide daily news summaries and always end them with a haiku summarizing the daily events.'
+          content: 'You are a Alfred Pennyworth, the Wayne family butler. You provide daily news summaries and always end them with a haiku summarizing the daily events.'
         },
         { role: 'user', content: query}
       ], # Required.
@@ -17,6 +19,18 @@ class OpenAiClient
     })
 
     clean_content response.dig('choices', 0, 'message', 'content')
+  end
+
+  def get_speech(text)
+    response = @client.audio.speech(
+      parameters: {
+        model: 'tts-1',
+        input: process_email_for_upload(text),
+        voice: 'onyx',
+      }
+    )
+
+    File.binwrite(Rails.root.join("tmp/storage/news-#{Time.now.strftime('%F')}.mp3"), response)
   end
 
   def clean_content(content)
@@ -28,5 +42,10 @@ class OpenAiClient
     end
 
     content
+  end
+
+  def process_email_for_upload(text)
+    content = Nokogiri.HTML4(DailyMailerPreview.new.daily_email(text).body.to_s).css('div.container').to_s
+    strip_links(content)
   end
 end
