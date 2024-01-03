@@ -4,7 +4,7 @@ class Prompt::Template
 
   # @return [Prompt::Template]
   def initialize
-    @sources = Source.today.presence || Source.create_from_scraper
+    @sources = Source.today.most_recent(AllScraper::SOURCES.count).presence || Source.create_from_scraper
   end
 
   # Iterates through Sources, and renders them in the prompt template
