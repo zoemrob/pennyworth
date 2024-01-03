@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: subscriptions
+#
+#  id                :integer          not null, primary key
+#  user_id           :integer          not null
+#  active            :boolean
+#  date_unsubscribed :datetime
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+one:
+  user: one
+  active: false
+  date_unsubscribed: 2024-01-03 14:03:23
+
+two:
+  user: two
+  active: false
+  date_unsubscribed: 2024-01-03 14:03:23

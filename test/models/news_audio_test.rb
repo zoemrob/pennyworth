@@ -1,16 +1,16 @@
 # == Schema Information
 #
-# Table name: news
+# Table name: news_audios
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  news_id    :integer          not null
+#  filename   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  prompt_id  :integer
 #
 require "test_helper"
 
-class NewsTest < ActiveSupport::TestCase
+class NewsAudioTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

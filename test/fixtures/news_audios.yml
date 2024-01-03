@@ -1,20 +1,18 @@
 # == Schema Information
 #
-# Table name: news
+# Table name: news_audios
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  news_id    :integer          not null
+#  filename   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  prompt_id  :integer
 #
 
 one:
-  user_id: 1
-  body: MyText
-  date: 2023-12-27 13:41:59
+  news: one
+  filename: MyString
 
 two:
-  user_id: 1
-  body: MyText
-  date: 2023-12-27 13:41:59
+  news: two
+  filename: MyString

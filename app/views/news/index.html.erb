@@ -1,0 +1,10 @@
+<h1>News Archive</h1>
+<div class="container">
+  <ul>
+  <% @news.each do |n| %>
+    <li>
+      <%= link_to n.created_at.strftime('%A, %B %e, %Y'), news_path(n.date) %>
+    </li>
+  <% end %>
+  </ul>
+</div>

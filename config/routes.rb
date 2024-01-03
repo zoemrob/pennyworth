@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get 'news/:date', to: 'news#show'
+  resources :news, only: %i[show index], param: :date
 end

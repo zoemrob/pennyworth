@@ -18,7 +18,6 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -79,3 +78,7 @@ gem "faker", "~> 3.2"
 gem "google_search_results", "~> 2.2"
 
 gem "kimurai", git: 'https://github.com/baka-san/kimurai_framework'
+
+gem "aws-sdk-s3", "~> 1.142"
+
+gem "annotate", "~> 3.2"

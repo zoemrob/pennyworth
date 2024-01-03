@@ -40,6 +40,13 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.2, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.2, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.6, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="annotate (v3.2.0, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-eventstream (v1.3.0, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-partitions (v1.876.0, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v3.190.1, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-kms (v1.75.0, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-s3 (v1.142.0, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.8.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.5, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, ruby-3.0.6-p216) [gem]" level="application" />
@@ -74,6 +81,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.1, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.11.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.5, ruby-3.0.6-p216) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jmespath (v1.6.2, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kimurai (v1.4.0@c0232a, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, ruby-3.0.6-p216) [gem]" level="application" />
@@ -131,7 +139,6 @@
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.1, ruby-3.0.6-p216) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v1.5.0, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, ruby-3.0.6-p216) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webrick (v1.8.1, ruby-3.0.6-p216) [gem]" level="application" />
@@ -152,6 +159,7 @@
       <list>
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
+        <option value="annotate:install" />
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
@@ -182,6 +190,7 @@
       <list>
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
+        <option value="annotate:install" />
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
@@ -473,19 +482,6 @@
               <RakeTaskImpl id="storage">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="tmp:storage:clear" id="clear" />
-                </subtasks>
-              </RakeTaskImpl>
-            </subtasks>
-          </RakeTaskImpl>
-          <RakeTaskImpl id="turbo">
-            <subtasks>
-              <RakeTaskImpl description="Install Turbo into the app" fullCommand="turbo:install" id="install" />
-              <RakeTaskImpl id="install">
-                <subtasks>
-                  <RakeTaskImpl description="Install Turbo into the app with bun" fullCommand="turbo:install:bun" id="bun" />
-                  <RakeTaskImpl description="Install Turbo into the app with asset pipeline" fullCommand="turbo:install:importmap" id="importmap" />
-                  <RakeTaskImpl description="Install Turbo into the app with webpacker" fullCommand="turbo:install:node" id="node" />
-                  <RakeTaskImpl description="Switch on Redis and use it in development" fullCommand="turbo:install:redis" id="redis" />
                 </subtasks>
               </RakeTaskImpl>
             </subtasks>

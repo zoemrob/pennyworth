@@ -78,8 +78,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :user_name => Rails.application.credentials.dig(:gmail_username),
-    :password => Rails.application.credentials.dig(:gmail_app_password),
+    :user_name => credentials.dig(:gmail_username),
+    :password => credentials.dig(:gmail_app_password),
     :authentication => :plain,
     :enable_starttls_auto => true
   }
@@ -87,4 +87,8 @@ Rails.application.configure do
   config.hosts << 'app.lvh.me'
 
   Rails.application.routes.default_url_options[:host] = '.lvh.me'
+
+  credentials.config.each do |key, value|
+    ENV[key.to_s.upcase] = value.to_s
+  end
 end

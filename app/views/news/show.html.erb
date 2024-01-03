@@ -1,6 +1,13 @@
 <div>
   <h1>Today's News</h1>
   <div class="container">
-    <%= @news.html_safe %>
+    <span>id: <%= @news.id %></span>
+    <%= @news.body.html_safe %>
+  </div>
+  <div class="audio__container">
+    <audio controls>
+      <source src="<%= @news.news_audio.url %>" type="audio/mpeg">
+      I'm warming up my voice, perhaps a refresh is in order.
+    </audio>
   </div>
 </div>
