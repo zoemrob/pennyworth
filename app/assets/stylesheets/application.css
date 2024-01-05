@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+    --brand-vibrant-blue: #0077CC;
+    --brand-bright-coral: #FF6B6B;
+    --brand-sunshine-yellow: #FFd93D;
+    --brand-soft-teal: #4ECDC4;
+    --brand-light-grey: #E1E5E8;
+    --brand-bold-magenta: #C34288;
+}
+
+body {
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+.grid-left-l { grid-area: 2 / 2 / 6 / 6; }
+.grid-right-s { grid-area: 2 / 6 / 6 / 8; }
+.grid-top { grid-area: 2 / 2 / 3 / 8; }
+.grid-content { grid-area: 3 / 3 / 6 / 7; }
+
+
+/* Begin header styles */
+header {
+    background-color: var(--brand-vibrant-blue);
+}
+
+header ul {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+header ul li {
+
+}
+
+header ul li a {
+    padding: 1rem;
+}
+
+header ul li a:hover {
+    background-color: var(--brand-bright-coral);
+}
+/* End header styles */

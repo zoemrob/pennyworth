@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_03_220323) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_05_175207) do
   create_table "news", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_220323) do
     t.text "template"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "model"
   end
 
   create_table "sources", force: :cascade do |t|
@@ -39,6 +40,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_220323) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prompt_id"
+    t.text "summary"
+    t.index ["prompt_id"], name: "index_sources_on_prompt_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -61,5 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_220323) do
 
   add_foreign_key "news", "prompts"
   add_foreign_key "news_audios", "news"
+  add_foreign_key "sources", "prompts"
   add_foreign_key "subscriptions", "users"
 end

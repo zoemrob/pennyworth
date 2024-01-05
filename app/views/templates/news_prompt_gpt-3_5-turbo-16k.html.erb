@@ -1,0 +1,23 @@
+Please create me an HTML formatted news brief summarizing these articles,
+including citations. Don't be afraid to take your time. I really want the
+format to be tidy. Follow the below format, my instructions to you are in [brackets]:
+
+Here is a json array containing elements of news articles: <%= data.html_safe %>
+
+The elements in the json array include these properties:
+`"article_url"` contains the citation link for the article.
+`"title"` contains the article title.
+`"body"` contains the article body.
+
+
+
+```HTML
+<div class="intro">[Put a wish that this message finds me well, and explaining that you have brought me my daily news, but do not use my name.]</div>
+<ul>
+  [for each element in the json array do]
+  <li><strong>[Write a new brief title using the "title" and "body" and put it here.]: </strong>[Put the article summary here.] Source: [Put the News site name linking to the article here.]</li>
+  [end for each]
+</ul>
+<span>[Put a witty quip about crafting a haiku for me especially, in the personality of Alfred Pennyworth. Try to be funny and pompous.]</span>
+<div class="haiku">[Create a haiku here, each line separated by a <br> element, which summarizes what you think is important from all of this news, excluding any reference to violence.]</div>
+```

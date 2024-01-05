@@ -1,7 +1,7 @@
 <div>
+  <% # TODO: refactor "Today" to display the date, unless it's today %>
   <h1>Today's News</h1>
   <div class="container">
-    <span>id: <%= @news.id %></span>
     <%= @news.body.html_safe %>
   </div>
   <div class="audio__container">

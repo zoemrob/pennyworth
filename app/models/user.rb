@@ -13,5 +13,5 @@
 class User < ApplicationRecord
   has_one :subscription
 
-  enum honorific: %i[sir miss madame master]
+  enum honorific: { sir: 0, miss: 1, madame: 2, master: 3 }
 end

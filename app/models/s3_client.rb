@@ -1,5 +1,9 @@
 # Small wrapper for S3 client
 class S3Client
+  def self.method_missing(m, *args, &block)
+    new.send(m, *args, &block)
+  end
+
   # @return [S3Client]
   def initialize
     @client = Aws::S3::Client.new
@@ -14,11 +18,22 @@ class S3Client
                        })
   end
 
+
   # Deletes a file from supplied bucket
   def delete_file(file, bucket)
     @client.delete_object({
                             key: file,
                             bucket: bucket
                           })
+  end
+
+  def file_exists?(file, bucket)
+    @client.head_object({
+                            key: file,
+                            bucket: bucket
+                          })
+    true
+  rescue Aws::S3::Errors::NotFound
+    false
   end
 end

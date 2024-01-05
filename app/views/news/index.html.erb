@@ -2,8 +2,10 @@
 <div class="container">
   <ul>
   <% @news.each do |n| %>
+    <% l = news_link n %>
+    <% next if l.nil? %>
     <li>
-      <%= link_to n.created_at.strftime('%A, %B %e, %Y'), news_path(n.date) %>
+      <%= l %>
     </li>
   <% end %>
   </ul>
