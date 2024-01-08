@@ -14,4 +14,10 @@ class User < ApplicationRecord
   has_one :subscription
 
   enum honorific: { sir: 0, miss: 1, madame: 2, master: 3 }
+
+  after_create :subscribe
+
+  def subscribe
+    create_subscription(active: true)
+  end
 end
