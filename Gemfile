@@ -73,11 +73,7 @@ gem "nokogiri", "~> 1.15"
 
 gem "httparty", "~> 0.21.0"
 
-gem "faker", "~> 3.2"
-
 gem "google_search_results", "~> 2.2"
-
-gem "kimurai", git: 'https://github.com/baka-san/kimurai_framework'
 
 gem "aws-sdk-s3", "~> 1.142"
 

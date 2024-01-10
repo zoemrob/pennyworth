@@ -87,8 +87,4 @@ Rails.application.configure do
   config.hosts << 'app.lvh.me'
 
   Rails.application.routes.default_url_options[:host] = '.lvh.me'
-
-  credentials.config.each do |key, value|
-    ENV[key.to_s.upcase] = value.to_s
-  end
 end
