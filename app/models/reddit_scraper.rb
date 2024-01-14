@@ -6,14 +6,14 @@ class RedditScraper
   BASE_URL = 'https://www.reddit.com'.freeze
   NEWS_URL = BASE_URL + '/r/news'.freeze
 
-  # Scrapes reddit.com/us-news for headline article
+  # Scrapes reddit.com/r/news for headline article
   # @return [Source] new, unsaved Source
   def scrape_us
     @scrape_url = NEWS_URL
     Source.new(**scrape)
   end
 
-  # Scrapes reddit.com/world-news for headline article
+  # Scrapes reddit.com/r/news for headline article
   # @return [Source] new, unsaved Source
   def scrape_world
     @scrape_url = NEWS_URL
@@ -32,5 +32,7 @@ class RedditScraper
 
   private
 
+  # Parses the linked article for the reddit post
+  # @return [String] linked_article_url
   def linked_article_url = article_document.css('main a[target="_blank"]').first.attr('href')
 end
