@@ -5,7 +5,7 @@ class TheGuardianScraper
 
   BASE_URL = 'https://www.theguardian.com'.freeze
   US_URL = BASE_URL + '/us-news'.freeze
-  WORLD_URL = BASE_URL + '/world-news'.freeze
+  WORLD_URL = BASE_URL + '/world'.freeze
 
   # Scrapes theguardian.com/us-news for headline article
   # @return [Source] new, unsaved Source
