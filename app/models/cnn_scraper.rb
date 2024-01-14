@@ -35,7 +35,7 @@ class CnnScraper
         element.children.map { |c| c.text }.join(' ')
       end.join('\n')
     else
-      data[:body] = article_document.css('p.paragraph').map { |element| element.text }.join('\\n')
+      data[:body] = article_document.css('p.paragraph').map(&:text).join('\\n')
     end
 
     data

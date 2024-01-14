@@ -1,20 +1,20 @@
-# Scrapes apnews.com for top topical news
-class ApNewsScraper
+# Scrapes theguardian.com for top topical news
+class TheGuardianScraper
   include FetchPageable
   include Scrapeable
 
-  BASE_URL = 'https://www.apnews.com'.freeze
+  BASE_URL = 'https://www.theguardian.com'.freeze
   US_URL = BASE_URL + '/us-news'.freeze
   WORLD_URL = BASE_URL + '/world-news'.freeze
 
-  # Scrapes apnews.com/us-news for headline article
+  # Scrapes theguardian.com/us-news for headline article
   # @return [Source] new, unsaved Source
   def scrape_us
     @scrape_url = US_URL
     Source.new(**scrape)
   end
 
-  # Scrapes apnews.com/world-news for headline article
+  # Scrapes theguardian.com/world-news for headline article
   # @return [Source] new, unsaved Source
   def scrape_world
     @scrape_url = WORLD_URL
@@ -27,12 +27,12 @@ class ApNewsScraper
     {
       site_url: @scrape_url,
       article_url: @top_url,
-      title: article_document.css('h1.Page-headline').text.strip,
-      body: article_document.css('main p').map(&:text).join('\n')
+      title: article_document.css('h1').text.strip,
+      body: article_document.css('div#maincontent p').map(&:text).join('\n')
     }
   end
 
   # Parses article page url from main page
   # @return [String] article_url
-  def parse_page_url = document.css('div.PageList-items a').first.attr('href')
+  def parse_page_url = BASE_URL + document.css('a[data-link-name*="news | group-0 | card-@1"]').first.attr('href')
 end
