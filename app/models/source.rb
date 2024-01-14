@@ -25,11 +25,12 @@ class Source < ApplicationRecord
   after_create :summarize, if: :needs_summary?
 
   # Builds Sources from scrapers and saves them
+  # @param count [Integer] number of sources to utilize, default: 3
   # @return [ActiveRecord::Relation]
-  def self.create_from_scraper
+  def self.create_from_scraper(count: 3)
     AllScraper.new.build.map(&:save!)
 
-    most_recent(AllScraper::SOURCES.count)
+    most_recent(count)
   end
 
   def clean_body

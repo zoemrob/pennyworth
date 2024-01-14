@@ -2,11 +2,12 @@
 class Prompt::Template
   attr_reader :sources, :model, :body
 
-  # @param model, one of Prompt::GPT_4 or Prompt::GPT_3_5
+  # @param model [String], one of Prompt::GPT_4 or Prompt::GPT_3_5
+  # @param source_count [Integer]
   # @return [Prompt::Template]
-  def initialize(model:)
+  def initialize(model:, source_count: 3)
     @model = model
-    @sources = Source.today.most_recent(AllScraper::SOURCES.count).presence || Source.create_from_scraper
+    @sources = Source.today.most_recent(source_count).presence || Source.create_from_scraper(count: source_count)
   end
 
   # Iterates through Sources, and renders them in the prompt template
