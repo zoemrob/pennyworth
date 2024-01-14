@@ -1,12 +1,6 @@
 # AllScraper iterates through all the web scrapers stored in SOURCES and
 # invokes the corresponding scrape_ message
 class AllScraper
-  SOURCES = [
-    CnnScraper,
-    ApNewsScraper,
-    TheHillScraper
-  ].freeze
-
   attr_reader :raw_data
 
   # Builds and AllScraper instance
@@ -26,5 +20,16 @@ class AllScraper
 
       data
     end
+  end
+
+  private
+
+  # Digs through the Rails.autoloaders to find all classes ending with 'Scraper', returning a list of Classes
+  # @return [Array<Class>]
+  def sources
+    Rails.autoloaders.main.__autoloads.values.map(&:last)
+         .select {|c| c.to_s.include?('Scraper')}
+         .reject {|c| c == self.class }
+         .map {|c| c.to_s.constantize }
   end
 end
