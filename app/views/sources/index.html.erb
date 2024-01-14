@@ -1,0 +1,9 @@
+<h1>All Sources</h1>
+<ul>
+  <% @sources.each do |s| %>
+    <li>
+      <%= link_to "Source: #{s.id}", source_path(s.id) %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @sources %>

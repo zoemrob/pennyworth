@@ -78,3 +78,5 @@ gem "google_search_results", "~> 2.2"
 gem "aws-sdk-s3", "~> 1.142"
 
 gem "annotate", "~> 3.2"
+
+gem "will_paginate", "~> 4.0"

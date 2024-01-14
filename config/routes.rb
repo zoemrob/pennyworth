@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "welcome#index"
 
-  resources :news, only: %i[show index], param: :date
+  resources :news, only: %i[index show], param: :date
+  resources :sources, only: %i[index show]
 end

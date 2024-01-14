@@ -2,13 +2,12 @@ class NewsController < ApplicationController
   PAGE_LIMIT = 25
 
   def index
-    chunk = params[:p].presence || 1
-    @news = News.all.includes(:news_audio).limit(PAGE_LIMIT).offset((chunk - 1) * PAGE_LIMIT)
+    @news = News.all.includes(:news_audio).paginate(page: params[:page])
   end
 
   def show
     dt, index = parse_date_param
-    @news = News.where(created_at: dt..dt.end_of_day)[index]
+    @news = News.where(created_at: dt..dt.end_of_day).includes(:news_audio)[index]
   end
 
   def parse_date_param

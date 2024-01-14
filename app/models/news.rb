@@ -15,6 +15,8 @@ class News < ApplicationRecord
   include OpenAiGeneratable
   include Mailable
 
+  self.per_page = 25
+
   scope :today, -> { where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day) }
 
   # from OpenAiGeneratable

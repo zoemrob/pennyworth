@@ -1,0 +1,9 @@
+<h1><%= @source.title %></h1>
+<div>
+  <h2>ID: <%= @source.id %></h2>
+  <div class="site_url">Site: <%= link_to nil, @source.site_url %></div>
+  <div class="article_url">Site: <%= link_to nil,  @source.article_url %></div>
+  <div class="article_body">
+    <p><%= @source.body %></p>
+  </div>
+</div>
