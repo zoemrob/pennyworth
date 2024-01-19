@@ -12,8 +12,8 @@ class Prompt < ApplicationRecord
   has_one :news
   has_many :sources
 
-  GPT_4 = 'gpt-4'.freeze
-  GPT_3_5 = 'gpt-3.5-turbo-16k'.freeze
+  GPT_4 = 'gpt-4-1106-preview'.freeze
+  GPT_3_5 = 'gpt-3.5-turbo-1106'.freeze
 
   enum model: {
     gpt4: GPT_4,

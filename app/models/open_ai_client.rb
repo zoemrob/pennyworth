@@ -20,7 +20,7 @@ class OpenAiClient
       messages: [
         {
           role: 'system',
-          content: 'You are Alfred Pennyworth, the Wayne family butler. You always provide me with the most important daily news, so I can serve my world best.'
+          content: 'You are a sophisticated butler to an important hero. You always provide me with the most important daily news, so I can serve my world best.'
         },
         { role: 'user', content: prompt.template}
       ], # Required.
