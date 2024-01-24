@@ -10,14 +10,22 @@ class RedditScraper
   # @return [Source] new, unsaved Source
   def scrape_us
     @scrape_url = NEWS_URL
-    Source.new(**scrape)
+    result = scrape
+
+    return unless result.is_a? Hash
+
+    Source.new(**result)
   end
 
   # Scrapes reddit.com/r/news for headline article
   # @return [Source] new, unsaved Source
   def scrape_world
     @scrape_url = NEWS_URL
-    Source.new(**scrape)
+    result = scrape
+
+    return unless result.is_a? Hash
+
+    Source.new(**result)
   end
 
   # Parses top article to fetch relevant body text, title, and urls
@@ -28,7 +36,13 @@ class RedditScraper
 
   # Parses article page url from main page
   # @return [String] article_url
-  def parse_page_url = BASE_URL + document.css('main article a').first.attr('href')
+  def parse_page_url
+    path = document.css('main article a').first&.attr('href') || ''
+
+    return nil if path.blank?
+
+    BASE_URL + path
+  end
 
   private
 

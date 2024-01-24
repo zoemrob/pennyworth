@@ -28,7 +28,7 @@ class Source < ApplicationRecord
   # @param count [Integer] number of sources to utilize, default: 3
   # @return [ActiveRecord::Relation]
   def self.create_from_scraper(count: 3)
-    AllScraper.new.build.map(&:save!)
+    AllScraper.new.build.reject(&:blank?).map(&:save!)
 
     most_recent(count)
   end

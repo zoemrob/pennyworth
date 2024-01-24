@@ -15,7 +15,9 @@ module Scrapeable
       @top_url = parse_page_url
     end
 
-    @article_document = Nokogiri.HTML4(fetch_page(top_url))
-    parse_article
+    if top_url.present?
+      @article_document = Nokogiri.HTML4(fetch_page(top_url))
+      parse_article
+    end
   end
 end
