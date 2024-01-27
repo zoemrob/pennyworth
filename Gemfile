@@ -80,3 +80,5 @@ gem "aws-sdk-s3", "~> 1.142"
 gem "annotate", "~> 3.2"
 
 gem "will_paginate", "~> 4.0"
+
+gem "tailwindcss-rails", "~> 2.3"

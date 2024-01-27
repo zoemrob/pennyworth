@@ -42,24 +42,24 @@ body {
 
 
 /* Begin header styles */
-header {
-    background-color: var(--brand-vibrant-blue);
-}
+/*header {*/
+/*    background-color: var(--brand-vibrant-blue);*/
+/*}*/
 
-header ul {
-    list-style-type: none;
-    display: inline-flex;
-}
+/*header ul {*/
+/*    list-style-type: none;*/
+/*    display: inline-flex;*/
+/*}*/
 
-header ul li {
+/*header ul li {*/
 
-}
+/*}*/
 
-header ul li a {
-    padding: 1rem;
-}
+/*header ul li a {*/
+/*    padding: 1rem;*/
+/*}*/
 
-header ul li a:hover {
-    background-color: var(--brand-bright-coral);
-}
+/*header ul li a:hover {*/
+/*    background-color: var(--brand-bright-coral);*/
+/*}*/
 /* End header styles */
